@@ -23,4 +23,16 @@ const generateEmployees = (myEmployees) => {
         </div>
         `;
     }
+    const generateIntern = (intern) => {
+        return `
+        <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">${intern.getName()}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${intern.getId()}</h6>
+            <p class="card-text">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></p>
+            <p class="card-text">School: ${intern.getSchool()}</p>
+            </div>
+        </div>
+        `;
+    }
 }
