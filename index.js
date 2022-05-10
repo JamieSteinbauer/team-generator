@@ -55,4 +55,26 @@ const questions = async () => {
         const Intern = new Intern(answers.name, answers.id, answers.email, internAnswers.school);
         saveTeamInfo.push(Intern);
     }
+
+    const nextEmployee = await inquirer.prompt([{
+        type: 'confirm',
+        name: 'nextEmployee',
+        message: "Would you like to add another employee?"
+    }])
+
+    if (nextEmployee.nextEmployee) {
+        return questions();
+    }
+    else {
+        return writeToFile();
+    }
+}
+
+questions();
+
+function writeToFile() {
+    fs.writeFile('./dist/index.html', generateEmployees(saveTeamInfo), err => {
+        if (err) throw err;
+        console.log('Successfully wrote to file!');
+    })
 }
