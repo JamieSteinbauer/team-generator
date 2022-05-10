@@ -45,4 +45,14 @@ const questions = async () => {
         const Engineer = new Engineer(answers.name, answers.id, answers.email, engineerAnswers.github);
         saveTeamInfo.push(Engineer);
     }
+    else if (answers.role === 'Intern') {
+        const internAnswers = await inquirer.prompt([{
+            type: 'input',
+            name: 'school',
+            message: 'What school do you go to?'
+        }])
+
+        const Intern = new Intern(answers.name, answers.id, answers.email, internAnswers.school);
+        saveTeamInfo.push(Intern);
+    }
 }
