@@ -35,4 +35,14 @@ const questions = async () => {
         const Manager = new Manager(answers.name, answers.id, answers.email, managerAnswers.officeNumber);
         saveTeamInfo.push(Manager);
     }
+    else if (answers.role === 'Engineer') {
+        const engineerAnswers = await inquirer.prompt([{
+            type: 'input',
+            name: 'github',
+            message: 'What is your GitHub username?'   
+        }])
+
+        const Engineer = new Engineer(answers.name, answers.id, answers.email, engineerAnswers.github);
+        saveTeamInfo.push(Engineer);
+    }
 }
